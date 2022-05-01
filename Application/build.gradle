@@ -33,6 +33,7 @@ dependencies {
 
     implementation project(':Entities')
     implementation project(':UseCases')
+    implementation project(':Providers')
     implementation project(':Rest')
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'

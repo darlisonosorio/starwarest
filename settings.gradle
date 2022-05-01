@@ -8,6 +8,7 @@ pluginManagement {
 rootProject.name = 'starwarest'
 include 'Entities'
 include 'UseCases'
+include 'Providers'
 include 'Rest'
 include 'Application'
 
