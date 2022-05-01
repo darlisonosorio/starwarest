@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public abstract class BaseListRequest<T>{
+public abstract class BaseListRequest<T> {
 
     private int count;
     private String next;

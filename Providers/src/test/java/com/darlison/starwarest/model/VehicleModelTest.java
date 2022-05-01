@@ -15,43 +15,40 @@ public class VehicleModelTest {
     @Test
     public void test() throws ParseException {
         SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
-        StarshipModel starship = new StarshipModel(
-            "Death Star",
-            "DS-1 Orbital Battle Station",
-            "Deep Space Mobile Battlestation",
-            "Imperial Department of Military Research, Sienar Fleet Systems",
-            "1000000000000",
-            "120000",
-            "342953",
-            "843342",
-            "n/a",
-            "4.0",
-            "10 MGLT",
-            "1000000000000",
-            "3 years",
-            Collections.emptyList(),
-            List.of("films/1/"),
-            "2014-12-10T16:36:50",
-            "2014-12-10T16:36:50",
-            "https://swapi.dev/api/starships/9/"
+        VehicleModel vehicle = new VehicleModel(
+                "Sand Crawler",
+                "Digger Crawler",
+                "wheeled",
+                "Corellia Mining Corporation",
+                "36.8",
+                "150000",
+                "46",
+                "30",
+                "30",
+                "50000",
+                "2 months",
+                List.of("films/1/"),
+                Collections.emptyList(),
+                "2014-12-10T15:36:25",
+                "2014-12-10T15:36:25",
+                "https://swapi.dev/api/vehicles/4/"
+
         );
-        assertSame("Death Star", starship.getName());
-        assertSame("DS-1 Orbital Battle Station", starship.getModel());
-        assertSame("Deep Space Mobile Battlestation", starship.getStarshipClass());
-        assertSame("Imperial Department of Military Research, Sienar Fleet Systems", starship.getManufacturer());
-        assertSame("1000000000000", starship.getCostInCredits());
-        assertSame("120000", starship.getLength());
-        assertSame("342953", starship.getCrew());
-        assertSame("843342", starship.getPassengers());
-        assertSame("n/a", starship.getMaxAtmospheringSpeed());
-        assertSame("4.0", starship.getHyperdriveRating());
-        assertSame("10 MGLT", starship.getMGLT());
-        assertSame("1000000000000", starship.getCargoCapacity());
-        assertSame("3 years", starship.getConsumables());
-        Assertions.assertEquals(Collections.emptyList(), starship.getPilots());
-        Assertions.assertEquals(List.of("films/1/"), starship.getFilms());
-        Assertions.assertEquals("2014-12-10T16:36:50", starship.getCreated());
-        Assertions.assertEquals("2014-12-10T16:36:50", starship.getEdited());
-        assertSame("https://swapi.dev/api/starships/9/", starship.getUrl());
+        assertSame("Sand Crawler", vehicle.getName());
+        assertSame("Digger Crawler", vehicle.getModel());
+        assertSame("wheeled", vehicle.getVehicleClass());
+        assertSame("Corellia Mining Corporation", vehicle.getManufacturer());
+        assertSame("36.8", vehicle.getLength());
+        assertSame("150000", vehicle.getCostInCredits());
+        assertSame("46", vehicle.getCrew());
+        assertSame("30", vehicle.getPassengers());
+        assertSame("30", vehicle.getMaxAtmospheringSpeed());
+        assertSame("50000", vehicle.getCargoCapacity());
+        assertSame("2 months", vehicle.getConsumables());
+        Assertions.assertEquals(List.of("films/1/"), vehicle.getFilms());
+        Assertions.assertEquals(Collections.emptyList(), vehicle.getPilots());
+        Assertions.assertEquals("2014-12-10T15:36:25", vehicle.getCreated());
+        Assertions.assertEquals("2014-12-10T15:36:25", vehicle.getEdited());
+        assertSame("https://swapi.dev/api/vehicles/4/", vehicle.getUrl());
     }
 }
