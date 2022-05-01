@@ -1,0 +1,206 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > StarshipModel</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.darlison.starwarest.model</a>
+</div>
+
+<h1>Coverage Summary for Class: StarshipModel (com.darlison.starwarest.model)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">StarshipModel</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    90%
+  </span>
+  <span class="absValue">
+    (18/20)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    96,5%
+  </span>
+  <span class="absValue">
+    (55/57)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.darlison.starwarest.model;
+<i class="no-highlight">2</i>&nbsp;
+<i class="no-highlight">3</i>&nbsp;import com.darlison.starwarest.entities.Film;
+<i class="no-highlight">4</i>&nbsp;import com.darlison.starwarest.entities.Person;
+<i class="no-highlight">5</i>&nbsp;import com.darlison.starwarest.entities.Starship;
+<i class="no-highlight">6</i>&nbsp;import lombok.Data;
+<i class="no-highlight">7</i>&nbsp;import lombok.EqualsAndHashCode;
+<i class="no-highlight">8</i>&nbsp;import lombok.NoArgsConstructor;
+<i class="no-highlight">9</i>&nbsp;
+<i class="no-highlight">10</i>&nbsp;import java.util.Date;
+<i class="no-highlight">11</i>&nbsp;import java.util.List;
+<i class="no-highlight">12</i>&nbsp;import java.util.stream.Collectors;
+<i class="no-highlight">13</i>&nbsp;
+<i class="no-highlight">14</i>&nbsp;import static com.darlison.starwarest.util.UrlHelper.extractIdFromUrl;
+<i class="no-highlight">15</i>&nbsp;
+<b class="fc"><i class="no-highlight">16</i>&nbsp;@Data</b>
+<b class="nc"><i class="no-highlight">17</i>&nbsp;@NoArgsConstructor</b>
+<b class="nc"><i class="no-highlight">18</i>&nbsp;@EqualsAndHashCode(callSuper = false)</b>
+<i class="no-highlight">19</i>&nbsp;public class StarshipModel extends BaseModel {
+<i class="no-highlight">20</i>&nbsp;
+<b class="fc"><i class="no-highlight">21</i>&nbsp;    private String name;</b>
+<b class="fc"><i class="no-highlight">22</i>&nbsp;    private String model;</b>
+<b class="fc"><i class="no-highlight">23</i>&nbsp;    private String starshipClass;</b>
+<b class="fc"><i class="no-highlight">24</i>&nbsp;    private String manufacturer;</b>
+<b class="fc"><i class="no-highlight">25</i>&nbsp;    private String costInCredits;</b>
+<b class="fc"><i class="no-highlight">26</i>&nbsp;    private String length;</b>
+<b class="fc"><i class="no-highlight">27</i>&nbsp;    private String crew;</b>
+<b class="fc"><i class="no-highlight">28</i>&nbsp;    private String passengers;</b>
+<b class="fc"><i class="no-highlight">29</i>&nbsp;    private String maxAtmospheringSpeed;</b>
+<b class="fc"><i class="no-highlight">30</i>&nbsp;    private String hyperdriveRating;</b>
+<b class="fc"><i class="no-highlight">31</i>&nbsp;    private String MGLT;</b>
+<b class="fc"><i class="no-highlight">32</i>&nbsp;    private String cargoCapacity;</b>
+<b class="fc"><i class="no-highlight">33</i>&nbsp;    private String consumables;</b>
+<i class="no-highlight">34</i>&nbsp;
+<b class="fc"><i class="no-highlight">35</i>&nbsp;    private List&lt;String&gt; pilots;</b>
+<b class="fc"><i class="no-highlight">36</i>&nbsp;    private List&lt;String&gt; films;</b>
+<i class="no-highlight">37</i>&nbsp;
+<i class="no-highlight">38</i>&nbsp;    public StarshipModel(
+<i class="no-highlight">39</i>&nbsp;            String name,
+<i class="no-highlight">40</i>&nbsp;            String model,
+<i class="no-highlight">41</i>&nbsp;            String starshipClass,
+<i class="no-highlight">42</i>&nbsp;            String manufacturer,
+<i class="no-highlight">43</i>&nbsp;            String costInCredits,
+<i class="no-highlight">44</i>&nbsp;            String length,
+<i class="no-highlight">45</i>&nbsp;            String crew,
+<i class="no-highlight">46</i>&nbsp;            String passengers,
+<i class="no-highlight">47</i>&nbsp;            String maxAtmospheringSpeed,
+<i class="no-highlight">48</i>&nbsp;            String hyperdriveRating,
+<i class="no-highlight">49</i>&nbsp;            String MGLT,
+<i class="no-highlight">50</i>&nbsp;            String cargoCapacity,
+<i class="no-highlight">51</i>&nbsp;            String consumables,
+<i class="no-highlight">52</i>&nbsp;            List&lt;String&gt; pilots,
+<i class="no-highlight">53</i>&nbsp;            List&lt;String&gt; films,
+<i class="no-highlight">54</i>&nbsp;            String created,
+<i class="no-highlight">55</i>&nbsp;            String edited,
+<i class="no-highlight">56</i>&nbsp;            String url
+<i class="no-highlight">57</i>&nbsp;    ) {
+<b class="fc"><i class="no-highlight">58</i>&nbsp;        super(created, edited, url);</b>
+<b class="fc"><i class="no-highlight">59</i>&nbsp;        this.name = name;</b>
+<b class="fc"><i class="no-highlight">60</i>&nbsp;        this.model = model;</b>
+<b class="fc"><i class="no-highlight">61</i>&nbsp;        this.starshipClass = starshipClass;</b>
+<b class="fc"><i class="no-highlight">62</i>&nbsp;        this.manufacturer = manufacturer;</b>
+<b class="fc"><i class="no-highlight">63</i>&nbsp;        this.costInCredits = costInCredits;</b>
+<b class="fc"><i class="no-highlight">64</i>&nbsp;        this.length = length;</b>
+<b class="fc"><i class="no-highlight">65</i>&nbsp;        this.crew = crew;</b>
+<b class="fc"><i class="no-highlight">66</i>&nbsp;        this.passengers = passengers;</b>
+<b class="fc"><i class="no-highlight">67</i>&nbsp;        this.maxAtmospheringSpeed = maxAtmospheringSpeed;</b>
+<b class="fc"><i class="no-highlight">68</i>&nbsp;        this.hyperdriveRating = hyperdriveRating;</b>
+<b class="fc"><i class="no-highlight">69</i>&nbsp;        this.MGLT = MGLT;</b>
+<b class="fc"><i class="no-highlight">70</i>&nbsp;        this.cargoCapacity = cargoCapacity;</b>
+<b class="fc"><i class="no-highlight">71</i>&nbsp;        this.consumables = consumables;</b>
+<b class="fc"><i class="no-highlight">72</i>&nbsp;        this.pilots = pilots;</b>
+<b class="fc"><i class="no-highlight">73</i>&nbsp;        this.films = films;</b>
+<b class="fc"><i class="no-highlight">74</i>&nbsp;    }</b>
+<i class="no-highlight">75</i>&nbsp;
+<i class="no-highlight">76</i>&nbsp;    public Starship toEntity() {
+<b class="fc"><i class="no-highlight">77</i>&nbsp;        final Starship result = new Starship();</b>
+<b class="fc"><i class="no-highlight">78</i>&nbsp;        result.setName(name);</b>
+<b class="fc"><i class="no-highlight">79</i>&nbsp;        result.setModel(model);</b>
+<b class="fc"><i class="no-highlight">80</i>&nbsp;        result.setStarshipClass(starshipClass);</b>
+<b class="fc"><i class="no-highlight">81</i>&nbsp;        result.setManufacturer(manufacturer);</b>
+<b class="fc"><i class="no-highlight">82</i>&nbsp;        result.setCostInCredits(costInCredits);</b>
+<b class="fc"><i class="no-highlight">83</i>&nbsp;        result.setLength(length);</b>
+<b class="fc"><i class="no-highlight">84</i>&nbsp;        result.setCrew(crew);</b>
+<b class="fc"><i class="no-highlight">85</i>&nbsp;        result.setPassengers(passengers);</b>
+<b class="fc"><i class="no-highlight">86</i>&nbsp;        result.setMaxAtmospheringSpeed(maxAtmospheringSpeed);</b>
+<b class="fc"><i class="no-highlight">87</i>&nbsp;        result.setHyperdriveRating(hyperdriveRating);</b>
+<b class="fc"><i class="no-highlight">88</i>&nbsp;        result.setMGLT(MGLT);</b>
+<b class="fc"><i class="no-highlight">89</i>&nbsp;        result.setCargoCapacity(cargoCapacity);</b>
+<b class="fc"><i class="no-highlight">90</i>&nbsp;        result.setConsumables(consumables);</b>
+<b class="fc"><i class="no-highlight">91</i>&nbsp;        result.setPilots(this.pilots.stream()</b>
+<b class="fc"><i class="no-highlight">92</i>&nbsp;                .map(it -&gt; new Person(extractIdFromUrl(it)))</b>
+<b class="fc"><i class="no-highlight">93</i>&nbsp;                .collect(Collectors.toList()));</b>
+<b class="fc"><i class="no-highlight">94</i>&nbsp;        result.setFilms(this.films.stream()</b>
+<b class="fc"><i class="no-highlight">95</i>&nbsp;                .map(it -&gt; new Film(extractIdFromUrl(it)))</b>
+<b class="fc"><i class="no-highlight">96</i>&nbsp;                .collect(Collectors.toList()));</b>
+<b class="fc"><i class="no-highlight">97</i>&nbsp;        this.setEntityValues(result);</b>
+<b class="fc"><i class="no-highlight">98</i>&nbsp;        return result;</b>
+<i class="no-highlight">99</i>&nbsp;    }
+<i class="no-highlight">100</i>&nbsp;
+<i class="no-highlight">101</i>&nbsp;}
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2022-05-01 18:42</div>
+</div>
+</body>
+</html>

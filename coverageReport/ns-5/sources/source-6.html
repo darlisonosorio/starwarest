@@ -1,0 +1,151 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > StarshipGatewayImpl</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.darlison.starwarest.gateway</a>
+</div>
+
+<h1>Coverage Summary for Class: StarshipGatewayImpl (com.darlison.starwarest.gateway)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">StarshipGatewayImpl</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    75%
+  </span>
+  <span class="absValue">
+    (3/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    85,7%
+  </span>
+  <span class="absValue">
+    (12/14)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.darlison.starwarest.gateway;
+<i class="no-highlight">2</i>&nbsp;
+<i class="no-highlight">3</i>&nbsp;import com.darlison.starwarest.entities.Starship;
+<i class="no-highlight">4</i>&nbsp;import com.darlison.starwarest.model.StarshipModel;
+<i class="no-highlight">5</i>&nbsp;import com.darlison.starwarest.request.StarshipRequest;
+<i class="no-highlight">6</i>&nbsp;import com.darlison.starwarest.source.ApiSource;
+<i class="no-highlight">7</i>&nbsp;import com.darlison.starwarest.usecases.gateways.StarshipGateway;
+<i class="no-highlight">8</i>&nbsp;import org.springframework.stereotype.Component;
+<i class="no-highlight">9</i>&nbsp;
+<i class="no-highlight">10</i>&nbsp;import java.util.Collections;
+<i class="no-highlight">11</i>&nbsp;import java.util.List;
+<i class="no-highlight">12</i>&nbsp;import java.util.stream.Collectors;
+<i class="no-highlight">13</i>&nbsp;
+<i class="no-highlight">14</i>&nbsp;@Component
+<i class="no-highlight">15</i>&nbsp;public class StarshipGatewayImpl extends SWGatewayImpl implements StarshipGateway {
+<i class="no-highlight">16</i>&nbsp;
+<i class="no-highlight">17</i>&nbsp;    public StarshipGatewayImpl() {
+<b class="fc"><i class="no-highlight">18</i>&nbsp;        super(&quot;/starships&quot;);</b>
+<b class="fc"><i class="no-highlight">19</i>&nbsp;    }</b>
+<i class="no-highlight">20</i>&nbsp;
+<i class="no-highlight">21</i>&nbsp;    @Override
+<i class="no-highlight">22</i>&nbsp;    public List&lt;Starship&gt; list(String search) {
+<b class="nc"><i class="no-highlight">23</i>&nbsp;        return this.list(search, null);</b>
+<i class="no-highlight">24</i>&nbsp;    }
+<i class="no-highlight">25</i>&nbsp;
+<i class="no-highlight">26</i>&nbsp;    @Override
+<i class="no-highlight">27</i>&nbsp;    public List&lt;Starship&gt; list(String name, String model) {
+<b class="fc"><i class="no-highlight">28</i>&nbsp;        final String nameParam = addParam(&quot;name&quot;, name, &#39;?&#39;);</b>
+<b class="fc"><i class="no-highlight">29</i>&nbsp;        final String modelParam = addParam(&quot;model&quot;, model, nameParam.isEmpty() ? &#39;?&#39; : &#39;&amp;&#39;);</b>
+<b class="fc"><i class="no-highlight">30</i>&nbsp;        final String url = this.url + nameParam + modelParam;</b>
+<i class="no-highlight">31</i>&nbsp;
+<b class="fc"><i class="no-highlight">32</i>&nbsp;        final StarshipRequest result = ApiSource.makeRequest(url, StarshipRequest.class, name, model);</b>
+<i class="no-highlight">33</i>&nbsp;
+<b class="fc"><i class="no-highlight">34</i>&nbsp;        return result == null</b>
+<b class="nc"><i class="no-highlight">35</i>&nbsp;                ? Collections.emptyList()</b>
+<b class="fc"><i class="no-highlight">36</i>&nbsp;                : result.getResults()</b>
+<b class="fc"><i class="no-highlight">37</i>&nbsp;                .stream()</b>
+<b class="fc"><i class="no-highlight">38</i>&nbsp;                .map(StarshipModel::toEntity)</b>
+<b class="fc"><i class="no-highlight">39</i>&nbsp;                .collect(Collectors.toList());</b>
+<i class="no-highlight">40</i>&nbsp;    }
+<i class="no-highlight">41</i>&nbsp;
+<i class="no-highlight">42</i>&nbsp;    @Override
+<i class="no-highlight">43</i>&nbsp;    public Starship getOne(Long id) {
+<b class="fc"><i class="no-highlight">44</i>&nbsp;        return ApiSource.makeRequest(this.url + &#39;/&#39; + id, StarshipModel.class).toEntity();</b>
+<i class="no-highlight">45</i>&nbsp;    }
+<i class="no-highlight">46</i>&nbsp;}
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2022-05-01 18:42</div>
+</div>
+</body>
+</html>
