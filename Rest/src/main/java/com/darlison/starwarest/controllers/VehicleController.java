@@ -9,10 +9,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("vehicles")
-public class VehiclesController {
+public class VehicleController {
 
     @Autowired
-    private SWBoundary<Vehicle> boundary;
+    protected SWBoundary<Vehicle> boundary;
 
     @GetMapping
     public List<Vehicle> list(@RequestParam(required = false) String name,

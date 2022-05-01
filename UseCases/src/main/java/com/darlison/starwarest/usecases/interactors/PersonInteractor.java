@@ -9,10 +9,10 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class PersonInterator implements SWBoundary<Person> {
+public class PersonInteractor implements SWBoundary<Person> {
 
     @Autowired
-    private SWGateway<Person> gateway;
+    protected SWGateway<Person> gateway;
 
     @Override
     public List<Person> list(String name) {

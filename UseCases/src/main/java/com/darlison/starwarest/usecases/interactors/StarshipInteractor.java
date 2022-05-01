@@ -9,10 +9,10 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class StarshipInterator implements SWBoundary<Starship> {
+public class StarshipInteractor implements SWBoundary<Starship> {
 
     @Autowired
-    private StarshipGateway gateway;
+    protected StarshipGateway gateway;
 
     @Override
     public List<Starship> list(String param1) {

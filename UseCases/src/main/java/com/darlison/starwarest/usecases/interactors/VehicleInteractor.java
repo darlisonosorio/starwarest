@@ -9,10 +9,10 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class VehicleInterator implements SWBoundary<Vehicle> {
+public class VehicleInteractor implements SWBoundary<Vehicle> {
 
     @Autowired
-    private VehicleGateway gateway;
+    protected VehicleGateway gateway;
 
     @Override
     public List<Vehicle> list(String param1) {

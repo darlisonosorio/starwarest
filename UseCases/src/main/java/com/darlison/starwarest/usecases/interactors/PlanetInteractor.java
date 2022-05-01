@@ -12,7 +12,7 @@ import java.util.List;
 public class PlanetInteractor implements SWBoundary<Planet> {
 
     @Autowired
-    private SWGateway<Planet> gateway;
+    protected SWGateway<Planet> gateway;
 
     @Override
     public List<Planet> list(String name) {

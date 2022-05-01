@@ -13,7 +13,7 @@ import java.util.List;
 public class FilmInteractor implements SWBoundary<Film> {
 
     @Autowired
-    private SWGateway<Film> gateway;
+    protected SWGateway<Film> gateway;
 
     @Override
     public List<Film> list(String name) {
@@ -22,7 +22,7 @@ public class FilmInteractor implements SWBoundary<Film> {
 
     @Override
     public List<Film> list(String param1, String param2) {
-        return null;
+        return null; // unnecessary implementation
     }
 
     @Override

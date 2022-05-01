@@ -1,6 +1,5 @@
 package com.darlison.starwarest.controllers;
 
-import com.darlison.starwarest.entities.Film;
 import com.darlison.starwarest.entities.Starship;
 import com.darlison.starwarest.usecases.boundaries.SWBoundary;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +12,7 @@ import java.util.List;
 public class StarshipController {
 
     @Autowired
-    private SWBoundary<Starship> boundary;
+    protected SWBoundary<Starship> boundary;
 
     @GetMapping
     public List<Starship> list(@RequestParam(required = false) String name,

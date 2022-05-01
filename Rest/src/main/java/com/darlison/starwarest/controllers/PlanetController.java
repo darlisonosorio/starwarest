@@ -12,7 +12,7 @@ import java.util.List;
 public class PlanetController {
 
     @Autowired
-    private SWBoundary<Planet> boundary;
+    protected SWBoundary<Planet> boundary;
 
     @GetMapping
     public List<Planet> list(@RequestParam(required = false) String name) {

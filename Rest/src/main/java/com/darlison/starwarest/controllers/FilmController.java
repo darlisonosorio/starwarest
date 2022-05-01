@@ -12,7 +12,7 @@ import java.util.List;
 public class FilmController {
 
     @Autowired
-    private SWBoundary<Film> boundary;
+    protected SWBoundary<Film> boundary;
 
     @GetMapping
     public List<Film> list(@RequestParam(required = false) String title) {

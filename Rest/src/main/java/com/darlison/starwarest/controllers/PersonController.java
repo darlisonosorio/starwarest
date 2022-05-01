@@ -12,7 +12,7 @@ import java.util.List;
 public class PersonController {
 
     @Autowired
-    private SWBoundary<Person> boundary;
+    protected SWBoundary<Person> boundary;
 
     @GetMapping
     public List<Person> list(@RequestParam(required = false) String name) {

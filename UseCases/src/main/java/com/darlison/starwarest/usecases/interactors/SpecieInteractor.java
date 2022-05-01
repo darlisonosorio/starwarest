@@ -12,7 +12,7 @@ import java.util.List;
 public class SpecieInteractor implements SWBoundary<Specie> {
 
     @Autowired
-    private SWGateway<Specie> gateway;
+    protected SWGateway<Specie> gateway;
 
     @Override
     public List<Specie> list(String name) {

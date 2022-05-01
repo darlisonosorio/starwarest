@@ -12,7 +12,7 @@ import java.util.List;
 public class SpecieController {
 
     @Autowired
-    private SWBoundary<Specie> boundary;
+    protected SWBoundary<Specie> boundary;
 
     @GetMapping
     public List<Specie> list(@RequestParam(required = false) String name) {
