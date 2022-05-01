@@ -31,8 +31,7 @@ public class VehicleTest {
             List.of(new Film(1L)),
             Collections.emptyList(),
             dateFormatter.parse("2014-12-10T15:36:25"),
-            dateFormatter.parse("2014-12-10T15:36:25"),
-            "https://swapi.dev/api/vehicles/4/"
+            dateFormatter.parse("2014-12-10T15:36:25")
         );
 
         assertSame(1L, vehicle.getId());
@@ -51,6 +50,5 @@ public class VehicleTest {
         Assertions.assertEquals(Collections.emptyList(), vehicle.getPilots());
         Assertions.assertEquals(dateFormatter.parse("2014-12-10T15:36:25"), vehicle.getCreated());
         Assertions.assertEquals(dateFormatter.parse("2014-12-10T15:36:25"), vehicle.getEdited());
-        assertSame("https://swapi.dev/api/vehicles/4/", vehicle.getUrl());
     }
 }

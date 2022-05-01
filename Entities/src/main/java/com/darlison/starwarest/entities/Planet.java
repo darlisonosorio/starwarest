@@ -43,10 +43,9 @@ public class Planet extends BaseEntity {
         List<Film> films,
         List<Person> residents,
         Date created,
-        Date edited,
-        String url
+        Date edited
     ) {
-        super(id, created, edited, url);
+        super(id, created, edited);
         this.name = name;
         this.diameter = diameter;
         this.rotationPeriod = rotationPeriod;

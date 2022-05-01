@@ -32,8 +32,7 @@ public class PersonTest {
             List.of(new Vehicle(24L), new Vehicle(30L)),
             List.of(new Starship(12L)),
             dateFormatter.parse("2014-12-09T13:50:51"),
-            dateFormatter.parse("2014-12-20T21:17:56"),
-            "https://swapi.dev/api/people/1/"
+            dateFormatter.parse("2014-12-20T21:17:56")
         );
         assertSame(1L, people.getId());
         assertSame("Luke Skywalker", people.getName());
@@ -51,7 +50,6 @@ public class PersonTest {
         Assertions.assertEquals(List.of(new Starship(12L)), people.getStarships());
         Assertions.assertEquals(dateFormatter.parse("2014-12-09T13:50:51"), people.getCreated());
         Assertions.assertEquals(dateFormatter.parse("2014-12-20T21:17:56"), people.getEdited());
-        assertSame("https://swapi.dev/api/people/1/", people.getUrl());
     }
 
 }

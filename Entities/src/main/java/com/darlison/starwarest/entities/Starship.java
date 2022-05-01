@@ -51,10 +51,9 @@ public class Starship extends BaseEntity {
             List<Person> pilots,
             List<Film> films,
             Date created,
-            Date edited,
-            String url
+            Date edited
     ) {
-        super(id, created, edited, url);
+        super(id, created, edited);
         this.name = name;
         this.model = model;
         this.starshipClass = starshipClass;

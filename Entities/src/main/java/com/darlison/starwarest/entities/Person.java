@@ -47,10 +47,9 @@ public class Person extends BaseEntity {
             List<Vehicle> vehicles,
             List<Starship> starships,
             Date created,
-            Date edited,
-            String url
+            Date edited
     ) {
-        super(id, created, edited, url);
+        super(id, created, edited);
         this.name = name;
         this.birthYear = birthYear;
         this.eyeColor = eyeColor;

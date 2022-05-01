@@ -1,5 +1,6 @@
 package com.darlison.starwarest.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -13,7 +14,7 @@ import java.util.List;
 public class Film extends BaseEntity {
 
     private String title;
-    private int episodeId;
+    private Integer episodeId;
     private String openingCrawl;
     private String director;
     private String producer;
@@ -41,10 +42,9 @@ public class Film extends BaseEntity {
         List<Person> characters,
         List<Planet> planets,
         Date created,
-        Date edited,
-        String url
+        Date edited
     ) {
-        super(id, created, edited, url);
+        super(id, created, edited);
         this.title = title;
         this.episodeId = episodeId;
         this.openingCrawl = openingCrawl;

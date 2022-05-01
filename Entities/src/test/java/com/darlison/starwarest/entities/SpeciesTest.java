@@ -29,8 +29,7 @@ public class SpeciesTest {
                 List.of(new Person(13L)),
                 List.of(new Film(1L), new Film(2L)),
                 dateFormatter.parse("2014-12-10T16:44:31"),
-                dateFormatter.parse("2014-12-10T16:44:31"),
-                "https://swapi.dev/api/species/3/"
+                dateFormatter.parse("2014-12-10T16:44:31")
         );
         assertSame("Wookie", species.getName());
         assertSame("Mammal", species.getClassification());
@@ -45,6 +44,5 @@ public class SpeciesTest {
         Assertions.assertEquals(List.of(new Film(1L), new Film(2L)), species.getFilms());
         Assertions.assertEquals(dateFormatter.parse("2014-12-10T16:44:31"), species.getCreated());
         Assertions.assertEquals(dateFormatter.parse("2014-12-10T16:44:31"), species.getEdited());
-        Assertions.assertEquals("https://swapi.dev/api/species/3/", species.getUrl());
     }
 }

@@ -45,10 +45,9 @@ public class Specie extends BaseEntity {
             List<Person> people,
             List<Film> films,
             Date created,
-            Date edited,
-            String url
+            Date edited
     ) {
-        super(id, created, edited, url);
+        super(id, created, edited);
         this.name = name;
         this.classification = classification;
         this.designation = designation;

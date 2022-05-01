@@ -27,8 +27,7 @@ public class FilmTest {
             List.of(new Person(1L)),
             List.of(new Planet(1L)),
             dateFormatter.parse("2014-12-10T14:23:31"),
-            dateFormatter.parse("2014-12-12T11:24:39"),
-            "https://swapi.dev/api/films/1/"
+            dateFormatter.parse("2014-12-12T11:24:39")
         );
 
         assertSame(1L, film.getId());
@@ -44,7 +43,6 @@ public class FilmTest {
         Assertions.assertEquals(List.of(new Planet(1L)), film.getPlanets());
         Assertions.assertEquals(dateFormatter.parse("2014-12-10T14:23:31"), film.getCreated());
         Assertions.assertEquals(dateFormatter.parse("2014-12-12T11:24:39"), film.getEdited());
-        assertSame("https://swapi.dev/api/films/1/", film.getUrl());
     }
 
 }

@@ -47,10 +47,9 @@ public class Vehicle extends BaseEntity {
             List<Film> films,
             List<Person> pilots,
             Date created,
-            Date edited,
-            String url
+            Date edited
     ) {
-        super(id, created, edited, url);
+        super(id, created, edited);
         this.name = name;
         this.model = model;
         this.vehicleClass = vehicleClass;

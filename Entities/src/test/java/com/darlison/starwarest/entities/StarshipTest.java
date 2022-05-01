@@ -33,8 +33,7 @@ public class StarshipTest {
             Collections.emptyList(),
             List.of(new Film(1L)),
             dateFormatter.parse("2014-12-10T16:36:50"),
-            dateFormatter.parse("2014-12-10T16:36:50"),
-            "https://swapi.dev/api/starships/9/"
+            dateFormatter.parse("2014-12-10T16:36:50")
         );
 
         assertSame(1L, starship.getId());
@@ -55,6 +54,5 @@ public class StarshipTest {
         Assertions.assertEquals(List.of(new Film(1L)), starship.getFilms());
         Assertions.assertEquals(dateFormatter.parse("2014-12-10T16:36:50"), starship.getCreated());
         Assertions.assertEquals(dateFormatter.parse("2014-12-10T16:36:50"), starship.getEdited());
-        assertSame("https://swapi.dev/api/starships/9/", starship.getUrl());
     }
 }
