@@ -2,9 +2,8 @@ package com.darlison.starwarest.gateway;
 
 import com.darlison.starwarest.entities.Planet;
 import com.darlison.starwarest.model.PlanetModel;
-import com.darlison.starwarest.request.PersonRequest;
 import com.darlison.starwarest.request.PlanetRequest;
-import com.darlison.starwarest.source.SWApiSource;
+import com.darlison.starwarest.source.ApiSource;
 import com.darlison.starwarest.usecases.gateways.PlanetGateway;
 import org.springframework.stereotype.Component;
 
@@ -22,7 +21,7 @@ public class PlanetGatewayImpl extends SWGatewayImpl implements PlanetGateway {
     @Override
     public List<Planet> list(String name) {
         final String url = this.url + addParam("name", name, '?');
-        final PlanetRequest result = SWApiSource.makeRequest(url, PlanetRequest.class, name);
+        final PlanetRequest result = ApiSource.makeRequest(url, PlanetRequest.class, name);
         return result == null
             ? Collections.emptyList()
             : result.getResults()
@@ -33,6 +32,6 @@ public class PlanetGatewayImpl extends SWGatewayImpl implements PlanetGateway {
 
     @Override
     public Planet getOne(Long id) {
-        return SWApiSource.makeRequest(this.url + '/' + id, PlanetModel.class).toEntity();
+        return ApiSource.makeRequest(this.url + '/' + id, PlanetModel.class).toEntity();
     }
 }

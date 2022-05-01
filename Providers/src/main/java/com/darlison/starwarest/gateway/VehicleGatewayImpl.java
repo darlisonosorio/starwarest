@@ -1,13 +1,9 @@
 package com.darlison.starwarest.gateway;
 
 import com.darlison.starwarest.entities.Vehicle;
-import com.darlison.starwarest.entities.Vehicle;
 import com.darlison.starwarest.model.VehicleModel;
-import com.darlison.starwarest.model.VehicleModel;
-import com.darlison.starwarest.request.StarshipRequest;
 import com.darlison.starwarest.request.VehicleRequest;
-import com.darlison.starwarest.request.VehicleRequest;
-import com.darlison.starwarest.source.SWApiSource;
+import com.darlison.starwarest.source.ApiSource;
 import com.darlison.starwarest.usecases.gateways.VehicleGateway;
 import org.springframework.stereotype.Component;
 
@@ -33,7 +29,7 @@ public class VehicleGatewayImpl extends SWGatewayImpl implements VehicleGateway 
         final String modelParam = addParam("model", model, nameParam.isEmpty() ? '?' : '&');
         final String url = this.url + nameParam + modelParam;
 
-        final VehicleRequest result = SWApiSource.makeRequest(url, VehicleRequest.class, name, model);
+        final VehicleRequest result = ApiSource.makeRequest(url, VehicleRequest.class, name, model);
 
         return result == null
                 ? Collections.emptyList()
@@ -45,6 +41,6 @@ public class VehicleGatewayImpl extends SWGatewayImpl implements VehicleGateway 
 
     @Override
     public Vehicle getOne(Long id) {
-        return SWApiSource.makeRequest(this.url + '/' + id, VehicleModel.class).toEntity();
+        return ApiSource.makeRequest(this.url + '/' + id, VehicleModel.class).toEntity();
     }
 }

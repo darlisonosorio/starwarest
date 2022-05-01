@@ -1,8 +1,7 @@
 package com.darlison.starwarest.gateway;
 
 
-import com.darlison.starwarest.model.BaseModel;
-import com.darlison.starwarest.source.SWApiSource;
+import com.darlison.starwarest.source.ApiSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,7 +12,7 @@ public abstract class SWGatewayImpl {
     protected static final Logger logger = LoggerFactory.getLogger(SWGatewayImpl.class);
 
     SWGatewayImpl(String url) {
-        this.url = SWApiSource.API_SOURCE + url;
+        this.url = ApiSource.API_SOURCE + url;
     }
 
     public String addParam(String param, String value, char separator) {

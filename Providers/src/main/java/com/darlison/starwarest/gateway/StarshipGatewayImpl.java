@@ -1,14 +1,9 @@
 package com.darlison.starwarest.gateway;
 
 import com.darlison.starwarest.entities.Starship;
-import com.darlison.starwarest.entities.Starship;
-import com.darlison.starwarest.model.StarshipModel;
-import com.darlison.starwarest.model.SpecieModel;
 import com.darlison.starwarest.model.StarshipModel;
 import com.darlison.starwarest.request.StarshipRequest;
-import com.darlison.starwarest.request.SpecieRequest;
-import com.darlison.starwarest.request.StarshipRequest;
-import com.darlison.starwarest.source.SWApiSource;
+import com.darlison.starwarest.source.ApiSource;
 import com.darlison.starwarest.usecases.gateways.StarshipGateway;
 import org.springframework.stereotype.Component;
 
@@ -34,7 +29,7 @@ public class StarshipGatewayImpl extends SWGatewayImpl implements StarshipGatewa
         final String modelParam = addParam("model", model, nameParam.isEmpty() ? '?' : '&');
         final String url = this.url + nameParam + modelParam;
 
-        final StarshipRequest result = SWApiSource.makeRequest(url, StarshipRequest.class, name, model);
+        final StarshipRequest result = ApiSource.makeRequest(url, StarshipRequest.class, name, model);
 
         return result == null
                 ? Collections.emptyList()
@@ -46,6 +41,6 @@ public class StarshipGatewayImpl extends SWGatewayImpl implements StarshipGatewa
 
     @Override
     public Starship getOne(Long id) {
-        return SWApiSource.makeRequest(this.url + '/' + id, StarshipModel.class).toEntity();
+        return ApiSource.makeRequest(this.url + '/' + id, StarshipModel.class).toEntity();
     }
 }

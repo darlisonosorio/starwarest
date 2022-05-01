@@ -1,13 +1,9 @@
 package com.darlison.starwarest.gateway;
 
 import com.darlison.starwarest.entities.Person;
-import com.darlison.starwarest.entities.Person;
-import com.darlison.starwarest.model.PersonModel;
 import com.darlison.starwarest.model.PersonModel;
 import com.darlison.starwarest.request.PersonRequest;
-import com.darlison.starwarest.request.PersonRequest;
-import com.darlison.starwarest.request.VehicleRequest;
-import com.darlison.starwarest.source.SWApiSource;
+import com.darlison.starwarest.source.ApiSource;
 import com.darlison.starwarest.usecases.gateways.PersonGateway;
 import org.springframework.stereotype.Component;
 
@@ -25,7 +21,7 @@ public class PersonGatewayImpl extends SWGatewayImpl implements PersonGateway {
     @Override
     public List<Person> list(String name) {
         final String url = this.url + addParam("name", name, '?');
-        final PersonRequest result = SWApiSource.makeRequest(url, PersonRequest.class, name);
+        final PersonRequest result = ApiSource.makeRequest(url, PersonRequest.class, name);
         return result == null
                 ? Collections.emptyList()
                 : result.getResults()
@@ -36,6 +32,6 @@ public class PersonGatewayImpl extends SWGatewayImpl implements PersonGateway {
 
     @Override
     public Person getOne(Long id) {
-        return SWApiSource.makeRequest(this.url + '/' + id, PersonModel.class).toEntity();
+        return ApiSource.makeRequest(this.url + '/' + id, PersonModel.class).toEntity();
     }
 }

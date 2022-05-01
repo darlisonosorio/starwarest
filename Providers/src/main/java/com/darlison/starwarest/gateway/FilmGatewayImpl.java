@@ -1,14 +1,9 @@
 package com.darlison.starwarest.gateway;
 
 import com.darlison.starwarest.entities.Film;
-import com.darlison.starwarest.entities.Film;
 import com.darlison.starwarest.model.FilmModel;
-import com.darlison.starwarest.model.FilmModel;
-import com.darlison.starwarest.model.VehicleModel;
 import com.darlison.starwarest.request.FilmRequest;
-import com.darlison.starwarest.request.FilmRequest;
-import com.darlison.starwarest.request.StarshipRequest;
-import com.darlison.starwarest.source.SWApiSource;
+import com.darlison.starwarest.source.ApiSource;
 import com.darlison.starwarest.usecases.gateways.FilmGateway;
 import org.springframework.stereotype.Component;
 
@@ -26,7 +21,7 @@ public class FilmGatewayImpl extends SWGatewayImpl implements FilmGateway {
     @Override
     public List<Film> list(String name) {
         final String url = this.url + addParam("name", name, '?');
-        final FilmRequest result = SWApiSource.makeRequest(url, FilmRequest.class, name);
+        final FilmRequest result = ApiSource.makeRequest(url, FilmRequest.class, name);
         return result == null
                 ? Collections.emptyList()
                 : result.getResults()
@@ -37,7 +32,7 @@ public class FilmGatewayImpl extends SWGatewayImpl implements FilmGateway {
 
     @Override
     public Film getOne(Long id) {
-        return SWApiSource.makeRequest(this.url + '/' + id, FilmModel.class).toEntity();
+        return ApiSource.makeRequest(this.url + '/' + id, FilmModel.class).toEntity();
     }
 }
 
